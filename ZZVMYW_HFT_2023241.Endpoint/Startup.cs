@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+using ZZVMYW_HFT_2023241.Endpoint.Services;
 using ZZVMYW_HFT_2023241.Logic;
 using ZZVMYW_HFT_2023241.Models;
 using ZZVMYW_HFT_2023241.Repository;
@@ -41,6 +42,7 @@ namespace ZZVMYW_HFT_2023241.Endpoint
             services.AddTransient<IRoleLogic, RoleLogic>();
             services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddTransient<ICoachLogic, CoachLogic>();
+            services.AddSignalR();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -57,13 +59,18 @@ namespace ZZVMYW_HFT_2023241.Endpoint
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ZZVMYW_HFT_2023241.Endpoint v1"));
             }
-
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:8205"));
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<SignalRHub>("/hub");
                 endpoints.MapControllers();
             });
         }
