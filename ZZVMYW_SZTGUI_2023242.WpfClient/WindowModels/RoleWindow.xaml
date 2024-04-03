@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:ZZVMYW_SZTGUI_2023242.WpfClient.WindowModels"
         mc:Ignorable="d"
         Title="RoleWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:RoleWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Roles}" SelectedItem="{Binding SelectedRole}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding RoleName}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Role" Background="CadetBlue" Padding="10"/>
+            <TextBox Text="{Binding SelectedRole.RoleName}" Padding="10" Margin="0,0,0,50"/>
+            <Button Content="Create Role" Command="{Binding CreateRoleCommand}" Padding="10" Margin="10"/>
+            <Button Content="Delete Role" Command="{Binding DeleteRoleCommand}" Padding="10" Margin="10"/>
+            <Button Content="Update Role" Command="{Binding UpdateRoleCommand}" Padding="10" Margin="10"/>
+        </StackPanel>
+
     </Grid>
 </Window>

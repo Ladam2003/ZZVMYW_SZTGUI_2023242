@@ -6,7 +6,28 @@
         xmlns:local="clr-namespace:ZZVMYW_SZTGUI_2023242.WpfClient.WindowModels"
         mc:Ignorable="d"
         Title="PlayerWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:PlayerWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding PlayerName}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Player" Background="CadetBlue" Padding="10"/>
+            <TextBox Text="{Binding SelectedPlayer.PlayerName}" Padding="10" Margin="0,0,0,50"/>
+            <Button Content="Create Player" Command="{Binding CreatePlayerCommand}" Padding="10" Margin="10"/>
+            <Button Content="Delete Player" Command="{Binding DeletePlayerCommand}" Padding="10" Margin="10"/>
+            <Button Content="Update Player" Command="{Binding UpdatePlayerCommand}" Padding="10" Margin="10"/>
+        </StackPanel>
+
     </Grid>
 </Window>

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZZVMYW_SZTGUI_2023242.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"  Background="SpringGreen">
     <Grid>
         <StackPanel>
-            <Button Content="Player Window" FontSize="15" Padding="10" Click="Player_Click" Margin="0,0,0,15"/>
-            <Button Content="Coach Window" FontSize="15" Padding="10" Click="Coach_Click" Margin="0,0,0,15"/>
-            <Button Content="Team Window" FontSize="15" Padding="10" Click="Team_Click" Margin="0,0,0,15"/>
-            <Button Content="Role Window" FontSize="15" Padding="10" Click="Role_Click" Margin="0,0,0,15"/>
-            <Button Content="NonCrud Window" FontSize="15" Padding="10" Click="NonCrud_Click" Margin="0,0,0,15"/>
+            <Button Content="Player Window" FontSize="15" Padding="10" Click="Player_Click" Margin="0,25,0,15" Background="Crimson" FontWeight="Bold"/>
+            <Button Content="Coach Window" FontSize="15" Padding="10" Click="Coach_Click" Margin="0,25,0,15" FontWeight="Bold" Background="Crimson"/>
+            <Button Content="Team Window" FontSize="15" Padding="10" Click="Team_Click" Margin="0,25,0,15" FontWeight="Bold"/>
+            <Button Content="Role Window" FontSize="15" Padding="10" Click="Role_Click" Margin="0,25,0,15" FontWeight="Bold"  Background="Green"/>
+            <Button Content="Exit" FontSize="15" Padding="10" Click="Exit_Click" FontWeight="Bold" Margin="0,25,0,15" Background="Green"/>
 
         </StackPanel>
 
