@@ -22,7 +22,6 @@ namespace ZZVMYW_SZTGUI_2023242.WpfClient
     public partial class MainWindow : Window
     {
         private PlayerWindow playerWindow;
-        private NonCrudWindow nonCrudWindow;
         private CoachWindow coachWindow;
         private TeamWindow teamWindow;
         private RoleWindow roleWindow;
@@ -33,27 +32,87 @@ namespace ZZVMYW_SZTGUI_2023242.WpfClient
 
         private void Player_Click(object sender, RoutedEventArgs e)
         {
-
+            if (playerWindow == null || !playerWindow.IsVisible)
+            {
+                playerWindow = new PlayerWindow();
+                playerWindow.Closed += PlayerWindow_Closed;
+                playerWindow.Show();
+            }
         }
 
         private void Coach_Click(object sender, RoutedEventArgs e)
         {
-
+            if (coachWindow == null || !coachWindow.IsVisible)
+            {
+                coachWindow = new CoachWindow();
+                coachWindow.Closed += CoachWindow_Closed;
+                coachWindow.Show();
+            }
         }
 
         private void Team_Click(object sender, RoutedEventArgs e)
         {
-
+            if (teamWindow == null || !teamWindow.IsVisible)
+            {
+                teamWindow = new TeamWindow();
+                teamWindow.Closed += TeamWindow_Closed;
+                teamWindow.Show();
+            }
         }
 
         private void Role_Click(object sender, RoutedEventArgs e)
         {
-
+            if (roleWindow == null || !roleWindow.IsVisible)
+            {
+                roleWindow = new RoleWindow();
+                roleWindow.Closed += RoleWindow_Closed;
+                roleWindow.Show();
+            }
         }
 
-        private void NonCrud_Click(object sender, RoutedEventArgs e)
+        private void PlayerWindow_Closed(object sender, EventArgs e)
         {
+            if (playerWindow != null)
+            {
+                playerWindow.Closed -= PlayerWindow_Closed;
+                playerWindow = null;
+            }
+        }
 
+        private void CoachWindow_Closed(object sender, EventArgs e)
+        {
+            if (coachWindow != null)
+            {
+                coachWindow.Closed -= CoachWindow_Closed;
+                coachWindow = null;
+            }
+        }
+
+        private void TeamWindow_Closed(object sender, EventArgs e)
+        {
+            if (teamWindow != null)
+            {
+                teamWindow.Closed -= TeamWindow_Closed;
+                teamWindow = null;
+            }
+        }
+
+        private void RoleWindow_Closed(object sender, EventArgs e)
+        {
+            if (roleWindow != null)
+            {
+                roleWindow.Closed -= RoleWindow_Closed;
+                roleWindow = null;
+            }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Biztosan be szeretnéd zárni az alkalmazást?", "Megerősítés", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }
