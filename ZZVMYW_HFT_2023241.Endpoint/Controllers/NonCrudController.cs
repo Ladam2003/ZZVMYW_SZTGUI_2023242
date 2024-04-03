@@ -17,27 +17,27 @@ namespace ZZVMYW_HFT_2023241.Endpoint
         {
             this.logic = logic;
         }
-        [HttpGet("Get average players age by teamId")]
+        [HttpGet]
         public double? getAvgPlayersAgeByTeamId(int teamId)
         {
             return this.logic.getAvgPlayersAgeByTeamId(teamId);
         }
-        [HttpGet("Get the oldest player by teamId")]
+        [HttpGet]
         public string getTheOldestPlayerByTeamId(int teamId)
         {
             return this.logic.getTheOldestPlayerByTeamId(teamId);
         }
-        [HttpGet("Get Coachs by team natioanlity")]
+        [HttpGet]
         public IEnumerable<Coach> GetCoachsByTeamNationality(string nationality)
         {
             return this.logic.GetCoachsByTeamNationality(nationality);
         }
-        [HttpGet("Get players count by teamId")]
+        [HttpGet]
         public int? GetPlayersCountByTeamId(int teamId)
         {
             return this.logic.GetPlayersCountByTeamId(teamId);
         }
-        [HttpGet("Get the youngest player by teamId")]
+        [HttpGet]
         public string getTheYoungestPlayerByTeamId(int teamId)
         {
             return this.logic.getTheYoungestPlayerByTeamId(teamId);
