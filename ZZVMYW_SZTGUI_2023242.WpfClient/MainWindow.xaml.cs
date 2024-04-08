@@ -25,6 +25,7 @@ namespace ZZVMYW_SZTGUI_2023242.WpfClient
         private CoachWindow coachWindow;
         private TeamWindow teamWindow;
         private RoleWindow roleWindow;
+        private NonCrudWindow nonCrudWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -112,6 +113,24 @@ namespace ZZVMYW_SZTGUI_2023242.WpfClient
             if (result == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
+            }
+        }
+
+        private void NonCruds_Click(object sender, RoutedEventArgs e)
+        {
+            if (nonCrudWindow == null || !nonCrudWindow.IsVisible)
+            {
+                nonCrudWindow = new NonCrudWindow();
+                nonCrudWindow.Closed += NonCrudWindow_Closed;
+                nonCrudWindow.Show();
+            }
+        }
+        private void NonCrudWindow_Closed(object sender, EventArgs e)
+        {
+            if (nonCrudWindow != null)
+            {
+                nonCrudWindow.Closed -= NonCrudWindow_Closed;
+                nonCrudWindow = null;
             }
         }
     }
