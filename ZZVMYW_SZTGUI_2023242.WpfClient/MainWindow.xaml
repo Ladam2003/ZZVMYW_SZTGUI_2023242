@@ -8,11 +8,12 @@
         Title="MainWindow" Height="450" Width="800"  Background="SpringGreen">
     <Grid>
         <StackPanel>
-            <Button Content="Player Window" FontSize="15" Padding="10" Click="Player_Click" Margin="0,25,0,15" Background="Crimson" FontWeight="Bold"/>
-            <Button Content="Coach Window" FontSize="15" Padding="10" Click="Coach_Click" Margin="0,25,0,15" FontWeight="Bold" Background="Crimson"/>
-            <Button Content="Team Window" FontSize="15" Padding="10" Click="Team_Click" Margin="0,25,0,15" FontWeight="Bold"/>
-            <Button Content="Role Window" FontSize="15" Padding="10" Click="Role_Click" Margin="0,25,0,15" FontWeight="Bold"  Background="Green"/>
-            <Button Content="Exit" FontSize="15" Padding="10" Click="Exit_Click" FontWeight="Bold" Margin="0,25,0,15" Background="Green"/>
+            <Button Content="Player Window" FontSize="15" Padding="10" Click="Player_Click" Margin="0,10,0,15" Background="Crimson" FontWeight="Bold"/>
+            <Button Content="Coach Window" FontSize="15" Padding="10" Click="Coach_Click" Margin="0,10,0,15" FontWeight="Bold" Background="Crimson"/>
+            <Button Content="Team Window" FontSize="15" Padding="10" Click="Team_Click" Margin="0,10,0,15" FontWeight="Bold"/>
+            <Button Content="Role Window" FontSize="15" Padding="10" Click="Role_Click" Margin="0,10,0,15" FontWeight="Bold"/>
+            <Button Content="NonCruds Window" FontSize="15" Padding="10" Click="NonCruds_Click" Margin="0,10,0,15" FontWeight="Bold"  Background="Green"/>
+            <Button Content="Exit" FontSize="15" Padding="10" Click="Exit_Click" FontWeight="Bold" Margin="0,10,0,15" Background="Green"/>
 
         </StackPanel>
 
