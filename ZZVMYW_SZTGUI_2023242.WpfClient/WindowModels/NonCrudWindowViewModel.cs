@@ -73,20 +73,31 @@ namespace ZZVMYW_SZTGUI_2023242.WpfClient.WindowModels
             set => SetProperty(ref _result, value);
         }
 
+        public static bool IsInDesignMode
+        {
+            get
+            {
+                var prop = DesignerProperties.IsInDesignModeProperty;
+                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+            }
+        }
         private async void GetResultAsync(string url)
         {
-            try
+            if (!IsInDesignMode)
             {
-                using (var client = new HttpClient())
+                try
                 {
-                    var response = await client.GetAsync("http://localhost:57195" + url);
-                    response.EnsureSuccessStatusCode();
-                    Result = await response.Content.ReadAsStringAsync();
+                    using (var client = new HttpClient())
+                    {
+                        var response = await client.GetAsync("http://localhost:57195" + url);
+                        response.EnsureSuccessStatusCode();
+                        Result = await response.Content.ReadAsStringAsync();
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while fetching data: " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while fetching data: " + ex.Message);
+                }
             }
         }
 
